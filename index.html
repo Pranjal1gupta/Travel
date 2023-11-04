@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic homepage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="hero">
+        <div class="navbar">
+            <img src="media/travel_icon.png" class="logo">
+            <div class="user">
+                <button type="button"> Explore</button>
+                <img src="media/user_icon.png">                
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="info">
+                <h1>THE ADVENTURE</h1>
+                <h2>Begin Here</h2>
+                <p>Confused which destination to choose for your next Adventure holiday? Don't worry!<br>Adventure Places - Make memories with unique yet thrilling adventurous sports like bungee jumping, sky diving, scuba diving, rafting and many more.</p>
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+        <div class="slider">
+            <img src="media/left_icon.png" id="prev">
+            <div class="preview">
+                <img src="media/back_img1.jpg" class="active thumbnail">
+                <img src="media/back_img6.jpg" class="thumbnail">
+                <img src="media/back_img2.jpg" class="thumbnail">
+                <img src="media/back_img3.jpg" class="thumbnail">
+                <img src="media/back_img4.jpg" class="thumbnail">
+                <img src="media/back_img5.jpg" class="thumbnail">
+                <img src="media/back_img7.jpg" class="thumbnail">
+            </div>
+            <img src="media/right_icon.png" id="next">
+        </div>
+
+    </div>
+
+
+    <script>
+        var prev=document.getElementById("prev");
+        var next=document.getElementById("next");
+        var thumbnail=document.getElementsByClassName("thumbnail");
+        var hero=document.getElementById("hero");
+        var backgroundImg=new Array(
+            "media/back_img1.jpg",
+            "media/back_img6.jpg",
+            "media/back_img2.jpg",
+            "media/back_img3.jpg",
+            "media/back_img4.jpg",
+            "media/back_img5.jpg",
+            "media/back_img7.jpg"
+        );
+        let i=0;
+        next.onclick=function(){
+            if(i<6){
+                hero.style.backgroundImage='url("'+backgroundImg[i+1]+'")';
+                thumbnail[i+1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i++;
+            } 
+        }
+
+        prev.onclick=function(){
+            if(i>0){
+                hero.style.backgroundImage='url("'+backgroundImg[i-1]+'")';
+                thumbnail[i-1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i--;
+            } 
+        }
+         
+
+    </script>
+
+</body>
+</html>
